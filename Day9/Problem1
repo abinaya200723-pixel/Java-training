@@ -1,0 +1,41 @@
+
+abstract class ATM {
+
+    // Encapsulation
+    private double balance = 10000;
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    // Abstract method
+    abstract void withdraw(double amount);
+}
+
+class SBIATM extends ATM {
+
+    @Override
+    void withdraw(double amount) {
+        if (amount <= getBalance()) {
+            setBalance(getBalance() - amount);
+            System.out.println("Withdrawal Successful");
+            System.out.println("Amount Withdrawn: " + amount);
+            System.out.println("Remaining Balance: " + getBalance());
+        } else {
+            System.out.println("Insufficient Balance");
+        }
+    }
+}
+
+public class Problem1 {
+    public static void main(String[] args) {
+
+        SBIATM atm = new SBIATM();
+
+        atm.withdraw(2500);
+    }
+}
