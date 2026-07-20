@@ -1,0 +1,37 @@
+class ATM {
+
+    double balance = 10000;
+
+    void transaction() {
+        System.out.println("ATM Transaction");
+    }
+}
+
+// Inheritance
+class SavingsAccount extends ATM {
+
+    // Polymorphism (Method Overriding)
+    @Override
+    void transaction() {
+        double withdraw = 2500;
+
+        if (withdraw <= balance) {
+            balance -= withdraw;
+            System.out.println("Withdrawal Successful");
+            System.out.println("Amount Withdrawn: " + withdraw);
+            System.out.println("Remaining Balance: " + balance);
+        } else {
+            System.out.println("Insufficient Balance");
+        }
+    }
+}
+
+public class Problem1 {
+    public static void main(String[] args) {
+
+        // Polymorphism
+        ATM obj = new SavingsAccount();
+
+        obj.transaction();
+    }
+}
