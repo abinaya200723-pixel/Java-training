@@ -11,6 +11,7 @@ class ownList<Integer>{
             arr[i] = value;
             i++;
         }
+
     }
     public int get(int index){
         return arr[index];
